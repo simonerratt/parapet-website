@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Parapet | Contact</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cufon-replace.js"></script>
+<script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+<script type="text/javascript" src="js/Myriad_Pro_700.font.js"></script>
+<script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
+<script type="text/javascript">
+function SendMsg() {
+
+    var firstname = document.getElementById("contactfirstname_id").value;
+    var lastname = document.getElementById("contactlastname_id").value;
+    var email = document.getElementById("contactemail_id").value;
+    var message = 'Message from: ' + firstname + ' ' + lastname + '%0aEmail address: ' + email + '%0a%0aMessage: ' + document.getElementById("contactmessage_id").value;
+    var token = document.getElementById("token_id").value;
+    var user = document.getElementById("user_id").value;
+
+    var sendstring = 'token=' + token + '&user=' + user + '&message=' + message
+
+    var xmlhttp;
+
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            }
+            else if (xmlhttp.status == 400) {
+                alert('There was an error 400')
+            }
+            else {
+                alert('Something else other than 200 was returned')
+            }
+        }
+    }
+
+    xmlhttp.open("POST", "https://api.pushover.net/1/messages.json", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(sendstring);
+
+    document.getElementById("contactfirstname_id").value = '';
+    document.getElementById("contactlastname_id").value = '';
+    document.getElementById("contactemail_id").value = '';
+    document.getElementById("contactmessage_id").value = '';
+
+    alert('Thanks ' + firstname + '. Someone from the professional services team will be in contact shortly.');
+
+}
+</script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/ie6_script_other.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body id="page5">
+
+<div class="main">
+  <header>
+    <div class="wrapper">
+      <h1><a href="index.html" id="logo">Parapet Solutions</a></h1>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li class="alpha"><a href="index.html"><span><span>Home</span></span></a></li>
+        <li><a href="about.html"><span><span>About</span></span> </a></li>
+        <li><a href="projects.html"><span><span>Projects</span></span></a></li>
+        <li><a href="support.html"><span><span>Support</span></span></a></li>
+        <li class="omega" id="menu_active"><a href="contact.html"><span><span>Contact</span></span></a></li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <div class="text"> <span class="text1">Parapet<span>Forward Thinking!</span></span> </div>
+    </div>
+  </header>
+  <section id="content">
+    <div class="wrapper">
+      <div class="pad">
+        <div class="wrapper">
+          <article class="col1">
+            <h2>Contact form</h2>
+          </article>
+          <article class="col2 pad_left1">
+            <h2>Contact us</h2>
+          </article>
+        </div>
+      </div>
+      <div class="box pad_bot1">
+        <div class="pad marg_top">
+          <article class="col1">
+            <form id="ContactForm" action="javascript:SendMsg()" method="POST";>
+                    <input type=hidden name="token" id="token_id" value="aJAZxtaPj6B6CNMXXE3MTJ59hNcXzo" />
+                    <input type=hidden name="user" id="user_id" value="gVB3fsgf27DXBfp8S1tqbynYGWPGsH" />
+                    <input type=hidden name="title" id="title_id" value="Contact Form" />
+                    <div>
+                        <div class="wrapper" style="width:470px; text-align:right;">
+                            <div class="bg">
+                                <input class="input" type="text" required="yes" name="contactfirstname" id="contactfirstname_id" />
+                            </div>
+                            First Name:&nbsp;&nbsp;&nbsp;
+                        </div>
+                        <div class="wrapper" style="width:470px; text-align:right;">
+                            <div class="bg">
+                                <input class="input" type="text" required="yes" name="contactlastname" id="contactlastname_id" />
+                            </div>
+                            Last Name:&nbsp;&nbsp;&nbsp;
+                        </div>
+                        <div class="wrapper" style="width:470px; text-align:right;">
+                            <div class="bg">
+                                <input class="input" type="email" name="contactemail" id="contactemail_id" />
+                            </div>
+                            Email:&nbsp;&nbsp;&nbsp;
+                        </div>
+                        <div class="wrapper" style="width:470px; text-align:right;">
+                            <div class="bg2">
+                                <textarea name="contactmessage" id="contactmessage_id" cols="1" rows="1"></textarea>
+                            </div>
+                            Message:&nbsp;&nbsp;&nbsp;
+                        </div>
+                        <input type="submit" class="button" value="Send">
+                    </div>
+                </form>
+          </article>
+          <article class="col2 pad_left1">
+            <div class="wrapper">
+              <p class="cols pad_bot3"> <strong> Location:<br>
+                Time zone:<br>
+                Email: </strong> </p>
+              <p class="pad_bot3"> Queensland, Australia<br>
+                GMT +10<br>sales@parapet.com.au
+                </p>
+            </div>
+            <h2>Working Locations</h2>
+            <p class="pad_bot3">We have resources available in Brisbane and Canberra, providing services throughout Australia. We know that our customers depend on their systems during the day so we are able to provide flexibility in working hours, and provide on site and remote service.</p>
+	<p>In addition, we are able to take advantage of our time zone to provide remote services world-wide if required.</p>
+          </article>
+        </div>
+      </div>
+      <div class="wrapper pad_bot4">
+        <ul class="banners">
+          <li> <a href="#"><img src="images/page1_img1.jpg" alt=""></a>
+            <div class="pad">
+              <p class="font1">Company History</p>
+              <p>Lorem ipsum doloamet consect etuer adipiscing.</p>
+              <a href="#" class="marker"></a> </div>
+          </li>
+          <li> <a href="#"><img src="images/MSCloud210.png" alt=""></a>
+            <div class="pad">
+              <p class="font1">Our Capabilities</p>
+              <p>Sed ut perspiciatis unde omnis iste naturror voluptatem.</p>
+              <a href="#" class="marker"></a> </div>
+          </li>
+          <li> <a href="#"><img src="images/page1_img3.jpg" alt=""></a>
+            <div class="pad">
+              <p class="font1">Where We Deliver</p>
+              <p>Nam libero tempore cum soluta nobis est eligendi optio.</p>
+              <a href="#" class="marker"></a> </div>
+          </li>
+          <li> <a href="#"><img src="images/page1_img4.jpg" alt=""></a>
+            <div class="pad">
+              <p class="font1">Operations Consulting</p>
+              <p>Temporibus autem quibusdam et aut officiis.</p>
+              <a href="#" class="marker"></a> </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p class="lf">Copyright &copy; 2015 <a href="http://www.parapet.com.au">Parapet Solutions Pty Ltd</a> - All Rights Reserved</p>
+    <div style="clear:both;"></div>
+  </footer>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

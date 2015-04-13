@@ -1,0 +1,68 @@
+.col1, .col2, .col3, .cols {
+	float:left;
+}
+.col1 {
+	width:450px;
+}
+.col2 {
+	width:340px;
+}
+.cols {
+	width:225px;
+}
+#page1 {
+	background:url(../images/bg_top.gif);
+}
+#page1 .text {
+	background:url(../images/PSBanner2.jpg) 1px 0 no-repeat;
+	padding:18px 0 0 200px;
+	margin-top:15px;
+	text-align:center;
+	height:265px;
+}
+#page1 .text1 span {
+	padding-bottom:40px;
+}
+#page2 .text {
+	background:url(../images/PSBanner3.jpg) 1px 0 no-repeat;
+	padding:18px 0 0 300px;
+	margin-top:15px;
+	text-align:center;
+	height:265px;
+}
+#page2 .text1 span {
+	padding-bottom:40px;
+}
+#page3 .text {
+	background:url(../images/PSBanner4.jpg) 1px 0 no-repeat;
+	padding:18px 0 0 300px;
+	margin-top:15px;
+	text-align:center;
+	height:265px;
+}
+#page3 .text1 span {
+	padding-bottom:40px;
+}
+#page4 .text {
+	background:url(../images/PSBanner5.jpg) 1px 0 no-repeat;
+	padding:18px 0 0 300px;
+	margin-top:15px;
+	text-align:center;
+	height:265px;
+}
+#page4 .text1 span {
+	padding-bottom:40px;
+}
+#page5 .cols {
+	width:85px;
+}
+#page5 .text {
+	background:url(../images/PSBanner1.jpg) 1px 0 no-repeat;
+	padding:18px 0 0 300px;
+	margin-top:15px;
+	text-align:center;
+	height:265px;
+}
+#page5 .text1 span {
+	padding-bottom:40px;
+}
